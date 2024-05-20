@@ -2,7 +2,7 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: nodeapp-hpa
-  namespace: project-apani-node
+  namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
