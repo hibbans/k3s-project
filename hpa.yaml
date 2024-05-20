@@ -1,0 +1,24 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nodeapp-hpa
+  namespace: project-apani-node
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nodeapp-deployment
+  minReplicas: 1 # Minimum number of pods
+  maxReplicas: 2 # Maximum number of pods
+  targetCPUUtilizationPercentage: 80 # Target CPU utilization
+  targetMemoryUtilizationPercentage:
+  autoscalingPolicy:
+    minReplicas: 1 # Minimum number of pods. same as above 
+    maxReplicas: 2 # Maximum number of pods. same as above
+    perPodResourceRequests: # Minimum resource request for creating a new pod
+      cpu: 128m # Request for each pod
+      memory: 128Mi # Request for each pod
+    perPodResourceLimits: #Maximum resource usage of pod
+      cpu: 256m # Limit for each pod
+      memory: 256Mi # Limit for each pod
+  cooldownSeconds: 30 # Cooldown period (in seconds)
