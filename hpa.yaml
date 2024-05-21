@@ -2,7 +2,7 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: nodeapp-hpa
-  namespace: default
+  namespace: project-apani-node
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -11,7 +11,6 @@ spec:
   minReplicas: 1 # Minimum number of pods
   maxReplicas: 2 # Maximum number of pods
   targetCPUUtilizationPercentage: 80 # Target CPU utilization
-  targetMemoryUtilizationPercentage:
   autoscalingPolicy:
     minReplicas: 1 # Minimum number of pods. same as above 
     maxReplicas: 2 # Maximum number of pods. same as above
