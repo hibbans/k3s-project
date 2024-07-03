@@ -5,7 +5,7 @@ metadata:
   namespace: project-apani-node
 spec:
   capacity:
-    storage: 5Gi
+    storage: 45Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain

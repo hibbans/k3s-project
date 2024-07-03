@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mysqlapp
-        image: mysql
+        image: mysql:5.7
         resources:
           limits:
             memory: "500Mi"
@@ -57,6 +57,8 @@ metadata:
   name: mysql-service
   namespace: project-apani-node
 spec:
+  type: LoadBalancer
+  # loadBalancerIP: 103.127.136.94
   selector:
     app: mysql
   ports:

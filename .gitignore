@@ -1,1 +1,6 @@
 k3s-token/
+values-prome-adapter.yaml
+secret-decode.txt
+l2advertisement.yaml
+ipaddresspool.yaml
+nginx-ingress

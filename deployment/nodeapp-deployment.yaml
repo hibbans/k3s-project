@@ -10,12 +10,16 @@ spec:
       app: nodeapp
   template:
     metadata:
+      # annotations:
+      #   prometheus.io/scrape: 'true'
+      #   prometheus.io/path: /metrics
+      #   prometheus.io/port: '3000'
       labels:
         app: nodeapp
     spec:
       containers:
       - name: nodeapp
-        image: hibban/apani_node:v1.4
+        image: hibban/apani_node:v1.6
         resources:
           limits:
             memory: "256Mi" # Batasan maksimum penggunaan memori
@@ -73,7 +77,7 @@ metadata:
   name: nodeapp-service
   namespace: project-apani-node
 spec:
-  type: LoadBalancer # LoadBalancer means this service is load-balanced across all nodes in the cluster
+  type: ClusterIP # LoadBalancer means this service is load-balanced across all nodes in the cluster
   selector:
     app: nodeapp
   ports:
