@@ -13,13 +13,15 @@ spec:
       labels:
         app: mysql
     spec:
+      nodeSelector:
+        node: agent-node
       containers:
       - name: mysqlapp
         image: mysql:5.7
         resources:
           limits:
-            memory: "500Mi"
-            cpu: "500m"
+            memory: "512Mi"
+            cpu: "256m"
         ports:
         - containerPort: 3306
         env:
@@ -58,7 +60,7 @@ metadata:
   namespace: project-apani-node
 spec:
   type: LoadBalancer
-  # loadBalancerIP: 103.127.136.94
+  loadBalancerIP: 103.175.216.188
   selector:
     app: mysql
   ports:

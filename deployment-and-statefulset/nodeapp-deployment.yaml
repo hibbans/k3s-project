@@ -17,6 +17,8 @@ spec:
       labels:
         app: nodeapp
     spec:
+      nodeSelector:
+        node: server-node
       containers:
       - name: nodeapp
         image: hibban/apani_node:v1.6
